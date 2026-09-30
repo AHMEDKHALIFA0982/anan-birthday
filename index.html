@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0c1020" />
+  <title>Anan's Birthday Chaos 🎂</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <canvas id="fxCanvas" aria-hidden="true"></canvas>
+
+  <button id="musicToggle" class="music-toggle hidden" aria-label="Toggle music">
+    🔊 Music ON
+  </button>
+
+  <section id="intro" class="screen intro-screen">
+    <div class="intro-card glass">
+      <div class="tiny-label">⚠️ IMPORTANT NOTIFICATION</div>
+      <h1>Hey <span>Anan</span> 👀</h1>
+      <p>There is something extremely serious waiting for you.</p>
+      <button id="openBtn" class="primary-btn">Open at your own risk 😂</button>
+      <small>No refunds after opening.</small>
+    </div>
+  </section>
+
+  <section id="loadingScreen" class="screen loading-screen hidden">
+    <div class="loading-box glass">
+      <div class="cake-icon">🎂</div>
+      <h2>Running birthday diagnostics...</h2>
+      <div class="loading-line"><span>Calculating age...</span><b id="ageStatus">...</b></div>
+      <div class="loading-line"><span>Searching for maturity...</span><b id="maturityStatus">...</b></div>
+      <div class="loading-line"><span>Detecting chaos...</span><b id="chaosStatus">...</b></div>
+      <div class="progress"><span id="progressBar"></span></div>
+      <p id="loadingMessage">Please do not unplug Anan.</p>
+    </div>
+  </section>
+
+  <main id="mainContent" class="hidden">
+    <section class="hero section">
+      <div class="floating-balloon b1">🎈</div>
+      <div class="floating-balloon b2">🎈</div>
+      <div class="floating-balloon b3">🎈</div>
+
+      <div class="hero-content">
+        <p class="eyebrow">SYSTEM UPDATE COMPLETE ✅</p>
+        <h1>HAPPY BIRTHDAY<br><span>ANAN 🎉</span></h1>
+        <p id="rotatingText" class="rotating-text">Another year older. Still no user manual.</p>
+
+        <div class="level-card glass">
+          <div>
+            <span>ANAN.EXE</span>
+            <strong>VERSION 2026</strong>
+          </div>
+          <div class="level-stats">
+            <span>+1 Age</span>
+            <span>+10 Experience</span>
+            <span>-5 Energy</span>
+          </div>
+        </div>
+
+        <a class="scroll-hint" href="#memories">Scroll for evidence ↓</a>
+      </div>
+    </section>
+
+    <section id="memories" class="section memories">
+      <div class="section-heading">
+        <p class="eyebrow">CLASSIFIED FILES 📸</p>
+        <h2>Totally Normal Memories</h2>
+        <p>Replace these placeholders with your favorite photos of Anan and friends.</p>
+      </div>
+
+      <div class="photo-grid">
+        <article class="polaroid tilt-left reveal">
+          <div class="photo-placeholder">
+            <img src="assets/anan1.jpeg" alt="Memory 1"
+              onerror="this.style.display='none'; this.parentElement.classList.add('fallback-one')" />
+          </div>
+          <p>Evidence that we actually go outside.</p>
+        </article>
+
+        <article class="polaroid tilt-right reveal">
+          <div class="photo-placeholder">
+            <img src="assets/anan3.jpeg" alt="Memory 2"
+              onerror="this.style.display='none'; this.parentElement.classList.add('fallback-two')" />
+          </div>
+          <p>One of the few normal photos 😂</p>
+        </article>
+
+        <article class="polaroid tilt-left reveal">
+          <div class="photo-placeholder">
+            <img src="assets/anan2.jpeg" alt="Memory 3"
+              onerror="this.style.display='none'; this.parentElement.classList.add('fallback-three')" />
+          </div>
+          <p>Moments before disaster.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section stats-section">
+      <div class="section-heading">
+        <p class="eyebrow">SCIENTIFICALLY QUESTIONABLE DATA 📊</p>
+        <h2>Anan's Official Statistics</h2>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card glass reveal">
+          <div class="stat-title"><span>Laughing at bad jokes</span><b>100%</b></div>
+          <div class="meter"><span style="--value:100%"></span></div>
+        </div>
+
+        <div class="stat-card glass reveal">
+          <div class="stat-title"><span>Being normal</span><b>17%</b></div>
+          <div class="meter"><span style="--value:17%"></span></div>
+        </div>
+
+        <div class="stat-card glass reveal">
+          <div class="stat-title"><span>Creating chaos</span><b>94%</b></div>
+          <div class="meter"><span style="--value:94%"></span></div>
+        </div>
+
+        <div class="stat-card glass reveal">
+          <div class="stat-title"><span>Getting older</span><b>100%</b></div>
+          <div class="meter"><span style="--value:100%"></span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section quiz-section">
+      <div class="quiz-card glass reveal">
+        <p class="eyebrow">VERY IMPORTANT EXAM 🤔</p>
+        <h2>Birthday Knowledge Test</h2>
+        <p>What is the correct way to celebrate your birthday?</p>
+        <div class="quiz-options">
+          <button class="quiz-btn">Eat cake 🎂</button>
+          <button class="quiz-btn">Sleep 😴</button>
+          <button class="quiz-btn">Pretend you're still younger 😎</button>
+          <button class="quiz-btn">All of the above ✅</button>
+        </div>
+        <div id="quizResult" class="result-box hidden">
+          Correct! Somehow. 😂
+        </div>
+      </div>
+    </section>
+
+    <section class="section danger-section">
+      <div class="danger-card reveal">
+        <p class="eyebrow">RESTRICTED AREA 🚨</p>
+        <h2>Whatever you do...</h2>
+        <button id="dontClickBtn" class="danger-btn">DO NOT CLICK</button>
+        <p id="dangerText">Seriously. Don't.</p>
+      </div>
+    </section>
+
+    <section class="section message-section">
+      <div class="message-card glass reveal">
+        <div class="message-icon">💌</div>
+        <p class="eyebrow">ACTUAL NICE PART</p>
+        <h2>Happy Birthday, Anan!</h2>
+        <p>
+          I hope this year brings you lots of happiness, success, fun adventures,
+          great memories, and hopefully slightly better decisions 😂.
+        </p>
+        <p>
+          Stay exactly as funny, chaotic, and awesome as you are.
+          Have an amazing birthday! 🎂🎉
+        </p>
+        <div class="signature">— From Ahmed khalifa 😎</div>
+      </div>
+    </section>
+
+    <section class="section final-section">
+      <div class="final-card reveal">
+        <p class="eyebrow">ONE LAST THING...</p>
+        <h2>There is still a birthday gift 🎁</h2>
+
+        <button id="giftBtn" class="gift-box" aria-label="Open gift">
+          <span class="gift-lid"></span>
+          <span class="gift-body"></span>
+          <span class="gift-ribbon-v"></span>
+          <span class="gift-ribbon-h"></span>
+        </button>
+
+        <div id="giftReveal" class="gift-reveal hidden">
+          <h3>🎉 OFFICIAL ANAN BIRTHDAY PACKAGE 🎉</h3>
+          <p>🎂 Unlimited cake</p>
+          <p>😂 Unlimited bad jokes</p>
+          <p>🎁 One free birthday wish</p>
+          <p>🧓 +1 year successfully added to your account</p>
+          <button id="finalPartyBtn" class="primary-btn">ACTIVATE PARTY MODE 🎊</button>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      Made with questionable coding decisions for Anan's birthday 😂
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
